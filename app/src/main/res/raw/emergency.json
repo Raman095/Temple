@@ -1,0 +1,97 @@
+[
+  {
+    "name": "Police",
+    "phoneNumber": "100",
+    "icons": "police"
+  },
+  {
+    "name": "Fire Brigade",
+    "phoneNumber": "101",
+    "icons": "fire_brigade"
+  },
+  {
+    "name": "Ambulance",
+    "phoneNumber": "102",
+    "icons": "ambulance"
+  },
+  {
+    "name": "Disaster Management Services",
+    "phoneNumber": "108",
+    "icons": "disaster_recovery"
+  },
+  {
+    "name": "Women Helpline",
+    "phoneNumber": "1091",
+    "icons": "support"
+  },
+  {
+    "name": "Women Helpline (Domestic Abuse)",
+    "phoneNumber": "181",
+    "icons": "helpline"
+  },
+  {
+    "name": "Cyber Crime Helpline",
+    "phoneNumber": "1930",
+    "icons": "cybersecurity_threats"
+  },
+  {
+    "name": "Child Helpline",
+    "phoneNumber": "1098",
+    "icons": "call"
+  },
+  {
+    "name": "Railway Enquiry & Security",
+    "phoneNumber": "139",
+    "icons": "railway"
+  },
+  {
+    "name": "Road Accident Emergency Service",
+    "phoneNumber": "1073",
+    "icons": "road_accident"
+  },
+  {
+    "name": "Tourist Helpline",
+    "phoneNumber": "1363",
+    "icons": "tourist"
+  },
+  {
+    "name": "Senior Citizen Helpline",
+    "phoneNumber": "14567",
+    "icons": "elderly"
+  },
+  {
+    "name": "Mental Health Support",
+    "phoneNumber": "14416",
+    "icons": "mental_health"
+  },
+  {
+    "name": "LPG Gas Leak Emergency",
+    "phoneNumber": "1906",
+    "icons": "lpg_gas"
+  },
+  {
+    "name": "National Highway Emergency (NHAI)",
+    "phoneNumber": "1033",
+    "icons": "highway"
+  },
+  {
+    "name": "Electricity Complaints",
+    "phoneNumber": "1912",
+    "icons": "electricity"
+  },
+  {
+    "name": "Blood Bank Information",
+    "phoneNumber": "1910",
+    "icons": "blood_bank"
+  },
+  {
+    "name": "Anti-Corruption",
+    "phoneNumber": "1064",
+    "icons": "anti_corruption"
+  },
+  {
+    "name": "Health Ministry Helpline",
+    "phoneNumber": "1075",
+    "icons": "health"
+  }
+]
