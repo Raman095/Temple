@@ -57,6 +57,7 @@ import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.core.content.ContextCompat
@@ -75,6 +76,7 @@ fun EmergencyContactScreen(
         containerColor = Color(0xFF101622),
         topBar = {
             TopAppBar(
+                modifier = Modifier.statusBarsPadding(),
                 title = {
                     Text(
                         text = "Emergency Contacts",
@@ -179,8 +181,8 @@ fun EmergencyContactItem(
             .fillMaxWidth()
             .padding(start = 12.dp, top = 8.dp, end = 12.dp, bottom = 8.dp)
             .border(
-                width = (0.05).dp,
-                color = Color.White,
+                width = (1).dp,
+                color = Color.DarkGray,
                 shape = RoundedCornerShape(16.dp)
             ),
         colors = CardDefaults.cardColors(Color(0xFF101726)),

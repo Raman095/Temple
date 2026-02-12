@@ -1,0 +1,428 @@
+[
+  {
+    "name": "Cardiovascular Disease",
+    "image": "cardiovascular",
+    "definition": "A group of disorders that affect the heart and blood vessels and can lead to serious events such as heart attack or stroke.",
+    "types": [
+      "Coronary Artery Disease: A condition where the coronary arteries become narrowed or blocked due to plaque buildup, reducing blood flow to the heart.",
+      "Hypertension: A disorder in which blood pressure remains consistently high, increasing strain on the heart and arteries.",
+      "Heart Failure: A condition where the heart is unable to pump blood efficiently to meet the body's needs.",
+      "Arrhythmia: A disorder characterized by irregular heartbeats caused by problems in the heart’s electrical system.",
+      "Congenital Heart Disease: A structural defect in the heart that is present from birth."
+    ],
+    "causes": [
+      "High blood pressure damages artery walls and increases the risk of heart-related disorders.",
+      "High cholesterol leads to plaque formation in blood vessels, restricting blood flow.",
+      "Smoking introduces toxic chemicals that damage blood vessels and the heart.",
+      "Obesity increases workload on the heart and disrupts normal metabolic functions.",
+      "Genetic factors increase susceptibility to cardiovascular conditions."
+    ],
+    "symptoms": [
+      "Chest pain or discomfort due to reduced blood flow to the heart.",
+      "Shortness of breath during physical activity or rest.",
+      "Fatigue caused by inefficient blood circulation.",
+      "Irregular heartbeat or palpitations.",
+      "Swelling in legs, ankles, or feet due to fluid retention."
+    ],
+    "preventionStrategy": [
+      "Maintain a healthy diet low in saturated fats and salt.",
+      "Engage in regular physical activity.",
+      "Avoid smoking and limit alcohol consumption.",
+      "Manage stress effectively.",
+      "Regular medical checkups."
+    ]
+  },
+  {
+    "name": "Diabetes Mellitus",
+    "image": "diabetes",
+    "definition": "A chronic metabolic disorder characterized by elevated blood glucose levels due to impaired insulin production or function.",
+    "types": [
+      "Type 1 Diabetes: A lifelong condition where the body's immune system attacks and destroys insulin-producing cells in the pancreas.",
+      "Type 2 Diabetes: A condition in which the body becomes resistant to insulin or does not produce enough insulin.",
+      "Gestational Diabetes: A temporary form of diabetes that develops during pregnancy and usually resolves after childbirth."
+    ],
+    "causes": [
+      "Autoimmune reactions destroy insulin-producing beta cells in the pancreas.",
+      "Insulin resistance prevents body cells from effectively using insulin.",
+      "Obesity interferes with insulin action and glucose metabolism.",
+      "Genetic predisposition increases the likelihood of developing diabetes."
+    ],
+    "symptoms": [
+      "Frequent urination.",
+      "Excessive thirst and hunger.",
+      "Unexplained weight loss.",
+      "Fatigue and weakness.",
+      "Blurred vision."
+    ],
+    "preventionStrategy": [
+      "Maintain a balanced diet.",
+      "Exercise regularly.",
+      "Maintain healthy body weight.",
+      "Monitor blood sugar levels.",
+      "Routine medical checkups."
+    ]
+  },
+  {
+    "name": "Epilepsy",
+    "image": "epilepsy",
+    "definition": "A neurological disorder marked by recurrent seizures caused by abnormal electrical activity in the brain.",
+    "types": [
+      "Focal Seizures: Seizures that originate in a specific area of the brain.",
+      "Generalized Seizures: Seizures that affect both sides of the brain.",
+      "Unknown Onset Seizures: Seizures with unknown origin."
+    ],
+    "causes": [
+      "Brain injury or trauma.",
+      "Genetic factors.",
+      "Stroke.",
+      "Brain infections."
+    ],
+    "symptoms": [
+      "Sudden seizures.",
+      "Temporary confusion.",
+      "Loss of consciousness.",
+      "Uncontrolled body movements."
+    ],
+    "preventionStrategy": [
+      "Avoid head injuries.",
+      "Take prescribed medications regularly.",
+      "Maintain proper sleep routines.",
+      "Avoid seizure triggers."
+    ]
+  },
+  {
+    "name": "Asthma",
+    "image": "asthma",
+    "definition": "A chronic respiratory disease in which the airways become inflamed, narrowed, and produce excess mucus.",
+    "types": [
+      "Allergic Asthma.",
+      "Non-allergic Asthma.",
+      "Exercise-induced Asthma."
+    ],
+    "causes": [
+      "Exposure to allergens.",
+      "Air pollution.",
+      "Respiratory infections.",
+      "Genetic factors."
+    ],
+    "symptoms": [
+      "Shortness of breath.",
+      "Wheezing.",
+      "Chest tightness.",
+      "Chronic coughing."
+    ],
+    "preventionStrategy": [
+      "Avoid triggers.",
+      "Use inhalers as prescribed.",
+      "Maintain clean air indoors.",
+      "Practice breathing exercises."
+    ]
+  },
+  {
+    "name": "Cancer",
+    "image": "cancer",
+    "definition": "A disease characterized by uncontrolled growth and spread of abnormal cells in the body.",
+    "types": [
+      "Carcinoma.",
+      "Sarcoma.",
+      "Leukemia.",
+      "Lymphoma.",
+      "Melanoma."
+    ],
+    "causes": [
+      "Genetic mutations.",
+      "Radiation exposure.",
+      "Tobacco usage.",
+      "Viral infections."
+    ],
+    "symptoms": [
+      "Unexplained weight loss.",
+      "Persistent fatigue.",
+      "Lumps or swelling.",
+      "Non-healing sores."
+    ],
+    "preventionStrategy": [
+      "Avoid tobacco.",
+      "Healthy lifestyle.",
+      "Sun protection.",
+      "Regular screenings."
+    ]
+  },
+  {
+    "name": "Alzheimer's Disease",
+    "image": "alzheimer",
+    "definition": "A progressive neurodegenerative disorder that leads to memory loss and cognitive decline.",
+    "types": [
+      "Early-onset Alzheimer's.",
+      "Late-onset Alzheimer's."
+    ],
+    "causes": [
+      "Abnormal protein buildup.",
+      "Genetic mutations.",
+      "Age-related brain changes."
+    ],
+    "symptoms": [
+      "Memory loss.",
+      "Confusion.",
+      "Difficulty speaking.",
+      "Mood changes."
+    ],
+    "preventionStrategy": [
+      "Mental stimulation.",
+      "Healthy diet.",
+      "Regular physical activity.",
+      "Social engagement."
+    ]
+  },
+  {
+    "name": "Tuberculosis",
+    "image": "tuberculosis",
+    "definition": "A contagious bacterial disease that primarily affects the lungs.",
+    "types": [
+      "Pulmonary Tuberculosis.",
+      "Extrapulmonary Tuberculosis."
+    ],
+    "causes": [
+      "Bacterial infection.",
+      "Weak immune system.",
+      "Close contact with infected individuals."
+    ],
+    "symptoms": [
+      "Persistent cough.",
+      "Chest pain.",
+      "Weight loss.",
+      "Night sweats."
+    ],
+    "preventionStrategy": [
+      "Vaccination.",
+      "Early diagnosis and treatment.",
+      "Good ventilation.",
+      "Avoid prolonged exposure."
+    ]
+  },
+  {
+    "name": "Hypertension",
+    "image": "hypertension",
+    "definition": "A chronic condition in which blood pressure remains persistently elevated.",
+    "types": [
+      "Primary Hypertension.",
+      "Secondary Hypertension."
+    ],
+    "causes": [
+      "High salt intake.",
+      "Stress.",
+      "Lack of physical activity.",
+      "Genetic factors."
+    ],
+    "symptoms": [
+      "Headaches.",
+      "Dizziness.",
+      "Chest pain.",
+      "Vision problems."
+    ],
+    "preventionStrategy": [
+      "Low-salt diet.",
+      "Regular exercise.",
+      "Stress management.",
+      "Routine BP monitoring."
+    ]
+  },
+  {
+    "name": "Chronic Kidney Disease",
+    "image": "kidney",
+    "definition": "A long-term condition in which the kidneys gradually lose their ability to filter waste.",
+    "types": [
+      "Acute Kidney Injury.",
+      "Chronic Kidney Failure."
+    ],
+    "causes": [
+      "Diabetes.",
+      "Hypertension.",
+      "Autoimmune diseases.",
+      "Long-term medication use."
+    ],
+    "symptoms": [
+      "Fatigue.",
+      "Swelling of legs.",
+      "Reduced urine output.",
+      "Nausea."
+    ],
+    "preventionStrategy": [
+      "Control blood sugar and BP.",
+      "Stay hydrated.",
+      "Avoid nephrotoxic drugs.",
+      "Regular kidney checkups."
+    ]
+  },
+  {
+    "name": "Liver Cirrhosis",
+    "image": "liver",
+    "definition": "A late-stage liver disease characterized by scarring and permanent damage.",
+    "types": [
+      "Alcoholic Cirrhosis.",
+      "Biliary Cirrhosis.",
+      "Post-hepatitis Cirrhosis."
+    ],
+    "causes": [
+      "Alcohol abuse.",
+      "Viral hepatitis.",
+      "Fatty liver disease.",
+      "Toxin exposure."
+    ],
+    "symptoms": [
+      "Fatigue.",
+      "Jaundice.",
+      "Abdominal swelling.",
+      "Easy bruising."
+    ],
+    "preventionStrategy": [
+      "Avoid alcohol.",
+      "Vaccination against hepatitis.",
+      "Healthy diet.",
+      "Regular liver screening."
+    ]
+  },
+  {
+    "name": "Migraine",
+    "image": "migraine",
+    "definition": "A neurological condition characterized by recurrent, severe headaches often accompanied by sensory disturbances.",
+    "types": [
+      "Migraine without Aura: A common form of migraine that causes intense headache pain without any visual or sensory warning signs.",
+      "Migraine with Aura: A type of migraine preceded by visual disturbances such as flashing lights or blind spots.",
+      "Chronic Migraine: A condition where migraine headaches occur for 15 or more days per month.",
+      "Hemiplegic Migraine: A rare migraine type that causes temporary paralysis or weakness on one side of the body."
+    ],
+    "causes": [
+      "Genetic factors influence sensitivity of brain chemicals involved in pain transmission.",
+      "Hormonal changes, particularly in women, can trigger migraine attacks.",
+      "Stress affects neurotransmitter balance and triggers headache episodes.",
+      "Certain foods and beverages stimulate migraine onset."
+    ],
+    "symptoms": [
+      "Throbbing headache pain usually on one side of the head.",
+      "Sensitivity to light and sound.",
+      "Nausea and vomiting.",
+      "Visual disturbances such as flashing lights."
+    ],
+    "preventionStrategy": [
+      "Maintain regular sleep and eating schedules.",
+      "Avoid known migraine triggers.",
+      "Practice stress management techniques.",
+      "Use preventive medications if prescribed."
+    ]
+  },
+  {
+    "name": "Anemia",
+    "image": "anemia",
+    "definition": "A condition in which the blood lacks sufficient healthy red blood cells to carry adequate oxygen to body tissues.",
+    "types": [
+      "Iron Deficiency Anemia: A condition caused by insufficient iron leading to reduced hemoglobin production.",
+      "Vitamin Deficiency Anemia: An anemia caused by lack of vitamin B12 or folate.",
+      "Aplastic Anemia: A rare disorder where the bone marrow fails to produce enough blood cells.",
+      "Hemolytic Anemia: A condition where red blood cells are destroyed faster than they are produced."
+    ],
+    "causes": [
+      "Iron deficiency due to poor diet or blood loss.",
+      "Vitamin B12 or folate deficiency affects red blood cell production.",
+      "Chronic diseases interfere with blood cell formation.",
+      "Genetic disorders affect red blood cell lifespan."
+    ],
+    "symptoms": [
+      "Fatigue and weakness.",
+      "Pale skin.",
+      "Shortness of breath.",
+      "Dizziness or lightheadedness."
+    ],
+    "preventionStrategy": [
+      "Consume iron-rich and vitamin-rich foods.",
+      "Treat underlying medical conditions.",
+      "Take supplements if advised by a doctor.",
+      "Regular blood tests for early detection."
+    ]
+  },
+  {
+    "name": "Osteoporosis",
+    "image": "osteoporosis",
+    "definition": "A bone disease that occurs when bone mineral density decreases, making bones weak and fragile.",
+    "types": [
+      "Primary Osteoporosis: A condition related to aging and hormonal changes, especially after menopause.",
+      "Secondary Osteoporosis: Bone loss caused by medical conditions or long-term medication use."
+    ],
+    "causes": [
+      "Aging reduces bone regeneration capacity.",
+      "Hormonal imbalance, especially low estrogen levels.",
+      "Insufficient calcium and vitamin D intake.",
+      "Sedentary lifestyle weakens bone strength."
+    ],
+    "symptoms": [
+      "Back pain due to fractured vertebrae.",
+      "Loss of height over time.",
+      "Stooped posture.",
+      "Frequent bone fractures."
+    ],
+    "preventionStrategy": [
+      "Ensure adequate calcium and vitamin D intake.",
+      "Engage in weight-bearing exercises.",
+      "Avoid smoking and excessive alcohol consumption.",
+      "Bone density screening for early detection."
+    ]
+  },
+  {
+    "name": "Depression",
+    "image": "depression",
+    "definition": "A mental health disorder characterized by persistent feelings of sadness, loss of interest, and impaired daily functioning.",
+    "types": [
+      "Major Depressive Disorder: A severe form of depression that interferes with daily life activities.",
+      "Persistent Depressive Disorder: A chronic form of depression lasting for two years or more.",
+      "Postpartum Depression: Depression that occurs after childbirth due to hormonal and emotional changes.",
+      "Seasonal Affective Disorder: Depression related to changes in seasons, typically occurring in winter."
+    ],
+    "causes": [
+      "Chemical imbalances in the brain affect mood regulation.",
+      "Traumatic life events increase emotional vulnerability.",
+      "Genetic predisposition influences mental health conditions.",
+      "Chronic stress alters brain function."
+    ],
+    "symptoms": [
+      "Persistent sadness or hopelessness.",
+      "Loss of interest in daily activities.",
+      "Sleep disturbances.",
+      "Difficulty concentrating."
+    ],
+    "preventionStrategy": [
+      "Seek early psychological support.",
+      "Maintain social connections.",
+      "Engage in regular physical activity.",
+      "Follow prescribed therapy or medication."
+    ]
+  },
+  {
+    "name": "Pneumonia",
+    "image": "pneumonia",
+    "definition": "An infection that inflames the air sacs in one or both lungs, which may fill with fluid or pus.",
+    "types": [
+      "Bacterial Pneumonia: A lung infection caused by bacteria such as Streptococcus pneumoniae.",
+      "Viral Pneumonia: Pneumonia caused by viruses including influenza.",
+      "Fungal Pneumonia: A lung infection caused by inhaling fungal spores.",
+      "Aspiration Pneumonia: Pneumonia caused by inhaling food, liquid, or vomit into the lungs."
+    ],
+    "causes": [
+      "Bacterial or viral infections attack lung tissue.",
+      "Weakened immune system increases infection risk.",
+      "Smoking damages lung defense mechanisms.",
+      "Prolonged hospitalization exposes patients to pathogens."
+    ],
+    "symptoms": [
+      "Cough with phlegm.",
+      "Fever and chills.",
+      "Chest pain while breathing.",
+      "Difficulty breathing."
+    ],
+    "preventionStrategy": [
+      "Vaccination against pneumonia and flu.",
+      "Practice good hand hygiene.",
+      "Avoid smoking.",
+      "Strengthen immunity through healthy lifestyle."
+    ]
+  }
+]
