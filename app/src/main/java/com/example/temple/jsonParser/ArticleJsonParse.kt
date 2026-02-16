@@ -5,10 +5,13 @@ import com.example.temple.R
 import com.example.temple.dataClasses.ArticleDataClass
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 object ArticleJsonParse {
 
-    fun loadArticleJsonFromRaw(context: Context): List<ArticleDataClass> {
+    suspend fun loadArticleJsonFromRaw(context: Context): List<ArticleDataClass> =
+        withContext(Dispatchers.IO){
 
         val inputStream = context.resources.openRawResource(R.raw.article)
 
@@ -16,7 +19,7 @@ object ArticleJsonParse {
 
         val listType = object : TypeToken<List<ArticleDataClass>>() {}.type
 
-        return Gson().fromJson(reader, listType)
+        Gson().fromJson(reader, listType)
     }
 
 }

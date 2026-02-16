@@ -2,22 +2,25 @@ package com.example.temple.view.articleScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -38,38 +41,42 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.example.temple.R
 import com.example.temple.dataClasses.ArticleDataClass
-import com.example.temple.viewModels.articleViewModel.ArticleListViewModel
+import com.example.temple.modelDataClasses.ArticleUIDataClass
+import com.example.temple.viewModels.articleViewModel.ArticleViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ArticleListScreen(
     navController: NavController,
-    articleListViewModel: ArticleListViewModel
+    articleViewModel: ArticleViewModel
 ) {
-    val articles by articleListViewModel.articleList.collectAsStateWithLifecycle()
+    val articles by articleViewModel.articleList.collectAsStateWithLifecycle()
     var searchQuery by remember { mutableStateOf("") }
     val query = searchQuery.trim().lowercase()
-    val filteredArticles = if (query.isBlank()) {
-        articles
-    } else {
-        articles.filter {
-            buildList<String> {
-                add(it.name)
-                add(it.definition)
-                addAll(it.types)
-                addAll(it.symptoms)
-                addAll(it.causes)
-                addAll(it.preventionStrategy)
-            }.any { articleData ->
-                articleData.contains(query, ignoreCase = true)
+    val filteredArticles = remember(articles, query) {
+        if (query.isBlank()) {
+            articles
+        } else {
+            articles.filter {
+                buildList {
+                    add(it.name)
+                    add(it.definition)
+                    addAll(it.types)
+                    addAll(it.symptoms)
+                    addAll(it.causes)
+                    addAll(it.preventionStrategy)
+                }.any { articleData ->
+                    articleData.contains(query, ignoreCase = true)
+                }
             }
         }
     }
@@ -77,14 +84,14 @@ fun ArticleListScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF101622))
+            .background(Color.White)
             .statusBarsPadding()
     ) {
         TopAppBar(
             title = {
                 Text(
                     text = "Articles",
-                    color = Color.White,
+                    color = Color.Black,
                     fontSize = 28.sp,
                     fontWeight = FontWeight.Normal
                 )
@@ -94,7 +101,7 @@ fun ArticleListScreen(
         OutlinedTextField(
             value = searchQuery,
             onValueChange = { searchQuery = it },
-            placeholder = { Text(text = "Search contacts", color = Color.White) },
+            placeholder = { Text(text = "Search diseases, symptoms...", color = Color.Black) },
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Default.Search, contentDescription = null
@@ -105,28 +112,27 @@ fun ArticleListScreen(
                 .padding(horizontal = 12.dp)
                 .height(56.dp)
                 .background(
-                    color = Color(0xFF16202e),
-                    shape = RoundedCornerShape(16.dp)
+                    color = Color.White
                 ),
             shape = RoundedCornerShape(16.dp),
             colors = androidx.compose.material3.OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color(0xFF16202e),
-                unfocusedContainerColor = Color(0xFF16202e),
-                focusedTextColor = Color.White,
-                unfocusedTextColor = Color.White,
-                focusedLeadingIconColor = Color.White,
-                unfocusedLeadingIconColor = Color.White
+                focusedContainerColor = Color.White,
+                unfocusedContainerColor = Color.White,
+                focusedTextColor = Color.Black,
+                unfocusedTextColor = Color.LightGray,
+                focusedLeadingIconColor = Color.Black,
+                unfocusedLeadingIconColor = Color.Black
             ),
             singleLine = true
         )
         HorizontalDivider(
-            color = Color.Gray.copy(alpha = 0.3f),
+            color = Color.Black.copy(alpha = 0.3f),
             thickness = 1.dp,
             modifier = Modifier.padding(top = 25.dp, bottom = 15.dp)
         )
         LazyColumn {
-            items(filteredArticles) { articlesData ->
-                ArticleItems(articles = articlesData)
+            items(filteredArticles, key = {it.name}) { articlesData ->
+                ArticleItems(articles = articlesData, navController = navController, articleViewModel = articleViewModel)
             }
         }
     }
@@ -134,34 +140,24 @@ fun ArticleListScreen(
 
 @Composable
 fun ArticleItems(
-    articles: ArticleDataClass
+    navController: NavController,
+    articles: ArticleUIDataClass,
+    articleViewModel: ArticleViewModel
 ) {
-
-    val context = LocalContext.current
-    val resId = remember(articles.image) {
-        context.resources.getIdentifier(
-            articles.image,
-            "drawable",
-            context.packageName
-        )
-    }
-
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 12.dp, end = 12.dp, top = 8.dp, bottom = 8.dp)
-            .height(100.dp)
-            .border(
-                width = 1.dp,
-                color = Color.DarkGray,
-                shape = RoundedCornerShape(14.dp)
-            ),
-        colors = CardDefaults.cardColors(Color(0xFF101726)),
-        elevation = CardDefaults.cardElevation(4.dp)
+            .heightIn(min = 100.dp)
+            .clickable{
+                articleViewModel.selectArticle(articles.name)
+                navController.navigate("article_detail")
+            },
+        colors = CardDefaults.cardColors(Color.White),
     ) {
         Row(
-            verticalAlignment = Alignment.CenterVertically,
+            verticalAlignment = Alignment.Top,
             horizontalArrangement = Arrangement.Start,
             modifier = Modifier
                 .fillMaxWidth()
@@ -172,15 +168,43 @@ fun ArticleItems(
                 modifier = Modifier
                     .size(80.dp)
                     .clip(RoundedCornerShape(12.dp))
-                    .background(
-                        color = Color(0xFF334155)
-                    )
             ) {
                 Image(
-                    painter = painterResource(id = resId),
+                    painter = painterResource(id = articles.image),
                     contentDescription = articles.name,
-                    modifier = Modifier.size(80.dp),
                     contentScale = ContentScale.Crop
+                )
+            }
+            Spacer(modifier = Modifier.width(18.dp))
+            Column {
+                Row(
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = articles.name,
+                        color = Color(0xFF135bec),
+                        fontSize = 17.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(top = 4.dp)
+                    )
+                    Spacer(modifier = Modifier.weight(0.8f))
+                    Icon(
+                        imageVector = Icons.Default.KeyboardArrowRight,
+                        contentDescription = null,
+                        tint = Color(0xFFd1d5db),
+                        modifier = Modifier
+                            .padding(top = (1.3).dp)
+                    )
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    text = articles.definition,
+                    modifier = Modifier.fillMaxWidth(),
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                    color = Color(0xFF616f89),
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Normal
                 )
             }
         }

@@ -60,6 +60,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.core.content.ContextCompat
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -73,14 +74,14 @@ fun EmergencyContactScreen(
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        containerColor = Color(0xFF101622),
+        containerColor = Color.White,
         topBar = {
             TopAppBar(
                 modifier = Modifier.statusBarsPadding(),
                 title = {
                     Text(
                         text = "Emergency Contacts",
-                        color = Color.White,
+                        color = Color.Black,
                         fontSize = 28.sp,
                         fontWeight = FontWeight.Normal
                     )
@@ -92,14 +93,16 @@ fun EmergencyContactScreen(
         }
     ) { paddingValues ->
 
-        val filteredContacts = contacts.filter { search ->
-            search.name.contains(searchQuery, ignoreCase = true)
+        val filteredContacts = remember(contacts, searchQuery) {
+            contacts.filter { search ->
+                search.name.contains(searchQuery, ignoreCase = true)
+            }
         }
         Column(modifier = Modifier.padding(paddingValues)) {
             OutlinedTextField(
                 value = searchQuery,
                 onValueChange = { searchQuery = it },
-                placeholder = { Text(text = "Search contacts", color = Color.White) },
+                placeholder = { Text(text = "Search contacts", color = Color.Black) },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Search, contentDescription = null
@@ -110,17 +113,16 @@ fun EmergencyContactScreen(
                     .padding(horizontal = 12.dp)
                     .height(56.dp)
                     .background(
-                        color = Color(0xFF16202e),
-                        shape = RoundedCornerShape(16.dp)
+                        color = Color.White
                     ),
                 shape = RoundedCornerShape(16.dp),
                 colors = androidx.compose.material3.OutlinedTextFieldDefaults.colors(
-                    focusedContainerColor = Color(0xFF16202e),
-                    unfocusedContainerColor = Color(0xFF16202e),
-                    focusedTextColor = Color.White,
-                    unfocusedTextColor = Color.White,
-                    focusedLeadingIconColor = Color.White,
-                    unfocusedLeadingIconColor = Color.White
+                    focusedContainerColor = Color.White,
+                    unfocusedContainerColor = Color.White,
+                    focusedTextColor = Color.Black,
+                    unfocusedTextColor = Color.Black,
+                    focusedLeadingIconColor = Color.Black,
+                    unfocusedLeadingIconColor = Color.Black
                 ),
                 singleLine = true
             )
@@ -130,7 +132,7 @@ fun EmergencyContactScreen(
                 modifier = Modifier.padding(vertical = 25.dp)
             )
             LazyColumn {
-                items(filteredContacts) { contact ->
+                items(filteredContacts, key = {it.name}) { contact ->
                     EmergencyContactItem(emergencyContacts = contact)
                 }
             }
@@ -185,8 +187,7 @@ fun EmergencyContactItem(
                 color = Color.DarkGray,
                 shape = RoundedCornerShape(16.dp)
             ),
-        colors = CardDefaults.cardColors(Color(0xFF101726)),
-        elevation = CardDefaults.cardElevation(4.dp)
+        colors = CardDefaults.cardColors(Color.White)
     ) {
         Row(
             modifier = Modifier
@@ -207,8 +208,8 @@ fun EmergencyContactItem(
                     painter = painterResource(id = resId),
                     contentDescription = null,
                     modifier = Modifier
-                        .size(43.dp)
-                        .clip(RoundedCornerShape(20.dp))
+                        .size(43.dp),
+                    contentScale = ContentScale.Crop
                 )
             }
             Spacer(modifier = Modifier.width(10.dp))
@@ -219,7 +220,7 @@ fun EmergencyContactItem(
             ) {
                 Text(
                     text = emergencyContacts.name,
-                    color = Color.White,
+                    color = Color.Black,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.SemiBold,
                     maxLines = 1,
@@ -228,7 +229,7 @@ fun EmergencyContactItem(
                 Spacer(modifier = Modifier.height(3.dp))
                 Text(
                     text = emergencyContacts.phoneNumber,
-                    color = Color.White,
+                    color = Color.Black,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Medium
                 )
@@ -285,5 +286,4 @@ fun EmergencyContactItem(
             }
         )
     }
-
 }

@@ -4,15 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.systemBarsPadding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material3.Icon
@@ -23,33 +17,32 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.example.temple.repositories.EmergencyRepository
-import com.example.temple.repositories.articleRepository.ArticleListRepository
 import com.example.temple.view.EmergencyContactScreen
+import com.example.temple.view.articleScreen.ArticleDetailScreen
 import com.example.temple.view.articleScreen.ArticleListScreen
 import com.example.temple.viewModels.EmergencyViewModel
 import com.example.temple.viewModels.EmergencyViewModelFactory
-import com.example.temple.viewModels.articleViewModel.ArticleListViewModel
-import com.example.temple.viewModels.articleViewModel.ArticleListViewModelFactory
+import com.example.temple.viewModels.articleViewModel.ArticleViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,12 +60,7 @@ class MainActivity : ComponentActivity() {
             )
 
             // For Article List and Information Scree
-            val articleRepository = remember {
-                ArticleListRepository(applicationContext)
-            }
-            val articleViewModel: ArticleListViewModel = viewModel(
-                factory = ArticleListViewModelFactory(articleRepository)
-            )
+            val articleViewModel: ArticleViewModel = hiltViewModel()
 
             Scaffold(
                 contentWindowInsets = WindowInsets(0, 0, 0, 0),
@@ -84,7 +72,7 @@ class MainActivity : ComponentActivity() {
                 AppNavHost(
                     navController = navController,
                     emergencyContactViewModel = emergencyViewModel,
-                    articleListViewModel = articleViewModel,
+                    articleViewModel = articleViewModel,
                     modifier = Modifier.padding(paddingValues)
                 )
 
@@ -120,7 +108,7 @@ fun BottomNavigationBar(navController: NavHostController) {
     )
 
     NavigationBar(
-        containerColor = Color(0xFF151a20)
+        containerColor = Color.White
     ) {
         val currentDestination = navController.currentBackStackEntryAsState().value?.destination
 
@@ -172,7 +160,7 @@ fun BottomNavigationBar(navController: NavHostController) {
 fun AppNavHost(
     navController: NavHostController,
     emergencyContactViewModel: EmergencyViewModel,
-    articleListViewModel: ArticleListViewModel,
+    articleViewModel: ArticleViewModel,
     modifier: Modifier = Modifier
 ) {
 
@@ -193,14 +181,12 @@ fun AppNavHost(
         ) {
 
             // Articles List Screen
-            composable("article_list") { ArticleListScreen(navController, articleListViewModel) }
+            composable("article_list") { ArticleListScreen(navController, articleViewModel) }
 
             // Article Information Screen
-            /*composable("article_info/{articleId}") { backStackEntry ->
-                val articleId = backStackEntry.arguments?.getString("articleId")
-                ArticleInfoScreen(articleId)
-            } */
+            composable("article_detail") {
+                ArticleDetailScreen(navController, articleViewModel)
+            }
         }
     }
-
 }

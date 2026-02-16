@@ -4,7 +4,7 @@
     "image": "cardiovascular",
     "definition": "A group of disorders that affect the heart and blood vessels and can lead to serious events such as heart attack or stroke.",
     "types": [
-      "Coronary Artery Disease: A condition where the coronary arteries become narrowed or blocked due to plaque buildup, reducing blood flow to the heart.",
+      "Coronary Artery Disease: A condition where the coronary arteries become narrowed or blocked due to plaque buildup.",
       "Hypertension: A disorder in which blood pressure remains consistently high, increasing strain on the heart and arteries.",
       "Heart Failure: A condition where the heart is unable to pump blood efficiently to meet the body's needs.",
       "Arrhythmia: A disorder characterized by irregular heartbeats caused by problems in the heart’s electrical system.",
@@ -37,7 +37,7 @@
     "image": "diabetes",
     "definition": "A chronic metabolic disorder characterized by elevated blood glucose levels due to impaired insulin production or function.",
     "types": [
-      "Type 1 Diabetes: A lifelong condition where the body's immune system attacks and destroys insulin-producing cells in the pancreas.",
+      "Type 1 Diabetes: A lifelong condition where the body's immune system attacks and destroys insulin-producing cells.",
       "Type 2 Diabetes: A condition in which the body becomes resistant to insulin or does not produce enough insulin.",
       "Gestational Diabetes: A temporary form of diabetes that develops during pregnancy and usually resolves after childbirth."
     ],
