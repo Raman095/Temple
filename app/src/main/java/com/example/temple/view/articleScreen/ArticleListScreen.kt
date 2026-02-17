@@ -48,8 +48,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.example.temple.R
-import com.example.temple.dataClasses.ArticleDataClass
 import com.example.temple.modelDataClasses.ArticleUIDataClass
 import com.example.temple.viewModels.articleViewModel.ArticleViewModel
 

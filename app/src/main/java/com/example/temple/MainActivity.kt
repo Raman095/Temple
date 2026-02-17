@@ -37,8 +37,11 @@ import com.example.temple.repositories.EmergencyRepository
 import com.example.temple.view.EmergencyContactScreen
 import com.example.temple.view.articleScreen.ArticleDetailScreen
 import com.example.temple.view.articleScreen.ArticleListScreen
+import com.example.temple.view.medicineScreen.MedicineDetailScreen
+import com.example.temple.view.medicineScreen.MedicineListScreen
 import com.example.temple.viewModels.EmergencyViewModel
 import com.example.temple.viewModels.EmergencyViewModelFactory
+import com.example.temple.viewModels.MedicineViewModel
 import com.example.temple.viewModels.articleViewModel.ArticleViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -59,8 +62,11 @@ class MainActivity : ComponentActivity() {
                 factory = EmergencyViewModelFactory(emergencyContactRepository)
             )
 
-            // For Article List and Information Scree
+            // For Article List and Information Screen
             val articleViewModel: ArticleViewModel = hiltViewModel()
+
+            // For Medicine List and Medicine Detail Screen
+            val medicineViewModel: MedicineViewModel = hiltViewModel()
 
             Scaffold(
                 contentWindowInsets = WindowInsets(0, 0, 0, 0),
@@ -73,6 +79,7 @@ class MainActivity : ComponentActivity() {
                     navController = navController,
                     emergencyContactViewModel = emergencyViewModel,
                     articleViewModel = articleViewModel,
+                    medicineViewModel = medicineViewModel,
                     modifier = Modifier.padding(paddingValues)
                 )
 
@@ -98,13 +105,20 @@ sealed class BottomNavItem(
         title = "Article",
         iconRes = R.drawable.book
     )
+
+    object Medicine : BottomNavItem(
+        route = "medicine",
+        title = "Medicine",
+        iconRes = R.drawable.medicine
+    )
 }
 
 @Composable
 fun BottomNavigationBar(navController: NavHostController) {
     val items = listOf(
         BottomNavItem.Emergency,
-        BottomNavItem.Article
+        BottomNavItem.Article,
+        BottomNavItem.Medicine
     )
 
     NavigationBar(
@@ -161,6 +175,7 @@ fun AppNavHost(
     navController: NavHostController,
     emergencyContactViewModel: EmergencyViewModel,
     articleViewModel: ArticleViewModel,
+    medicineViewModel: MedicineViewModel,
     modifier: Modifier = Modifier
 ) {
 
@@ -187,6 +202,19 @@ fun AppNavHost(
             composable("article_detail") {
                 ArticleDetailScreen(navController, articleViewModel)
             }
+        }
+
+        // Medicine Screen
+        navigation(
+            route = BottomNavItem.Medicine.route,
+            startDestination = "medicine_list"
+        ) {
+
+            // Medicine List Screen
+            composable("medicine_list") { MedicineListScreen(navController, medicineViewModel) }
+
+            // Medicine Detail Screen
+            composable("medicine_detail") { MedicineDetailScreen(navController, medicineViewModel) }
         }
     }
 }
