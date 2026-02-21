@@ -1,10 +1,15 @@
 package com.example.temple
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -19,6 +24,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -49,7 +56,12 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.light(
+                Color.Transparent.toArgb(),
+                Color.White.toArgb()
+            )
+        )
         setContent {
 
             val navController = rememberNavController()
@@ -122,7 +134,10 @@ fun BottomNavigationBar(navController: NavHostController) {
     )
 
     NavigationBar(
-        containerColor = Color.White
+        containerColor = Color.White,
+        modifier = Modifier
+            .height(80.dp)
+            .border(BorderStroke(1.dp, Color.LightGray), shape = RectangleShape)
     ) {
         val currentDestination = navController.currentBackStackEntryAsState().value?.destination
 
@@ -159,8 +174,8 @@ fun BottomNavigationBar(navController: NavHostController) {
                     Text(text = item.title)
                 },
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = Color(0xFF135bec),
-                    selectedTextColor = Color(0xFF135bec),
+                    selectedIconColor = Color(0xFF22c55e),
+                    selectedTextColor = Color(0xFF22c55e),
                     unselectedIconColor = Color.Gray,
                     unselectedTextColor = Color.Gray,
                     indicatorColor = Color.Transparent

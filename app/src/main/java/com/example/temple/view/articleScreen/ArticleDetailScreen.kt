@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
@@ -59,8 +60,8 @@ fun ArticleDetailScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
-            .systemBarsPadding()
+            .background(Color(0xFFf1f3f5))
+            .statusBarsPadding()
     ) {
         TopAppBar(
             navigationIcon = {
@@ -133,7 +134,7 @@ fun ArticleDefinition(definition: String) {
                 modifier = Modifier
                     .size(7.dp, 27.dp)
                     .background(
-                        color = Color(0xFF135bec),
+                        color = Color(0xFF22c55e),
                         shape = RoundedCornerShape(10.dp)
                     )
             )
@@ -186,7 +187,7 @@ fun ArticleTypesCard(types: String) {
             .defaultMinSize(minWidth = 180.dp)   // minimum width
             .widthIn(max = 240.dp)   // maximum width so it doesn’t stretch too much
             .background(
-                Color(0xFFf8fafc),
+                Color(0xFFffffff),
                 shape = RoundedCornerShape(12.dp)
             )
             .padding(12.dp),
@@ -232,7 +233,7 @@ fun ArticleCausesCard(causes: String) {
             .defaultMinSize(minWidth = 180.dp)   // minimum width
             .widthIn(max = 240.dp)   // maximum width so it doesn’t stretch too much
             .background(
-                Color(0xFFf8fafc),
+                Color(0xFFffffff),
                 shape = RoundedCornerShape(12.dp)
             )
             .padding(12.dp),
@@ -269,7 +270,7 @@ fun ArticleSymptomsSection(symptoms: List<String>) {
                 Icon(
                     imageVector = Icons.Default.CheckCircle,
                     contentDescription = null,
-                    tint = Color(0xFF135bec),
+                    tint = Color(0xFF22c55e),
                     modifier = Modifier.size(20.dp)
                 )
                 Spacer(modifier = Modifier.width(10.dp))
@@ -297,7 +298,7 @@ fun ArticlePreventionStrategySection(prevention: List<String>) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 18.dp, end = 18.dp, top = 12.dp),
+            .padding(start = 18.dp, end = 18.dp, top = 12.dp, bottom = 12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         prevention.forEach {
@@ -312,7 +313,7 @@ fun ArticlePreventionStrategyCard(preventions: String) {
         modifier = Modifier
             .fillMaxWidth()
             .background(
-                Color(0xFFf8fafc),
+                Color(0xFFffffff),
                 shape = RoundedCornerShape(12.dp)
             )
             .padding(12.dp),

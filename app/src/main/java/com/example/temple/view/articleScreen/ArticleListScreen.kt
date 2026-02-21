@@ -82,7 +82,7 @@ fun ArticleListScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(Color(0xFFf1f3f5))
             .statusBarsPadding()
     ) {
         TopAppBar(
@@ -108,10 +108,7 @@ fun ArticleListScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 12.dp)
-                .height(56.dp)
-                .background(
-                    color = Color.White
-                ),
+                .height(56.dp),
             shape = RoundedCornerShape(16.dp),
             colors = androidx.compose.material3.OutlinedTextFieldDefaults.colors(
                 focusedContainerColor = Color.White,
@@ -180,7 +177,7 @@ fun ArticleItems(
                 ) {
                     Text(
                         text = articles.name,
-                        color = Color(0xFF135bec),
+                        color = Color(0xFF22c55e),
                         fontSize = 17.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(top = 4.dp)

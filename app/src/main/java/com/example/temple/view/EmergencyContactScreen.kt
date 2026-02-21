@@ -74,7 +74,7 @@ fun EmergencyContactScreen(
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        containerColor = Color.White,
+        containerColor = Color(0xFFf1f3f5),
         topBar = {
             TopAppBar(
                 modifier = Modifier.statusBarsPadding(),
@@ -111,10 +111,7 @@ fun EmergencyContactScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 12.dp)
-                    .height(56.dp)
-                    .background(
-                        color = Color.White
-                    ),
+                    .height(56.dp),
                 shape = RoundedCornerShape(16.dp),
                 colors = androidx.compose.material3.OutlinedTextFieldDefaults.colors(
                     focusedContainerColor = Color.White,
@@ -185,7 +182,7 @@ fun EmergencyContactItem(
             .border(
                 width = (1).dp,
                 color = Color.DarkGray,
-                shape = RoundedCornerShape(16.dp)
+                shape = RoundedCornerShape(10.dp)
             ),
         colors = CardDefaults.cardColors(Color.White)
     ) {
